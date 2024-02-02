@@ -44,8 +44,8 @@ def create_new_island():
     global stop
     stop = False
     while True:
-        x = random.randint(50, 750)  # Satunnainen x-koordinaatti
-        y = random.randint(50, 450)  # Satunnainen y-koordinaatti
+        x = random.randint(50, 750)
+        y = random.randint(50, 450)
         overlapping = False
         for island in islands:
             coords = canvas.coords(island.canvas)
@@ -144,10 +144,10 @@ def monkey_swim(island, monkey):
 
 def add_dock(island):
     x, y, _, _ = canvas.coords(island.canvas)
-    canvas.create_line(x, y + 50, x - 20, y + 50, fill="brown", width=2)  # Laituri länteen
-    canvas.create_line(x + 50, y, x + 50, y - 20, fill="brown", width=2)  # Laituri pohjoiseen
-    canvas.create_line(x + 100, y + 50, x + 120, y + 50, fill="brown", width=2)  # Laituri itään
-    canvas.create_line(x + 50, y + 100, x + 50, y + 120, fill="brown", width=2)  # Laituri etelään
+    canvas.create_line(x, y + 50, x - 20, y + 50, fill="brown", width=2)
+    canvas.create_line(x + 50, y, x + 50, y - 20, fill="brown", width=2)
+    canvas.create_line(x + 100, y + 50, x + 120, y + 50, fill="brown", width=2)
+    canvas.create_line(x + 50, y + 100, x + 50, y + 120, fill="brown", width=2) 
 
     for monkey in monkeys:
         if monkey.on_island is island.name:
@@ -189,7 +189,7 @@ def check_shark_attack():
     while True:
         for monkey in monkeys:
             if monkey.swimming is True:
-                if random.random() < 0.01:  # Apina merellä ja riski haiden hyökkäykseen
+                if random.random() < 0.01:
                     monkeys.remove(monkey)
                     canvas.delete(monkey.canvas)
                     play_shark_attack_sound()
@@ -197,13 +197,13 @@ def check_shark_attack():
 
 def play_laughter_death_sound():
     winsound.Beep(1000, 200)
-    print("Apina kuoli nauruun")
+    print("Monkey died of laughter")
 
 def play_shark_attack_sound():
     winsound.Beep(600, 200)
     time.sleep(0.3)
     winsound.Beep(300, 200)
-    print("Apina syötiin hain toimesta")
+    print("Monkey was eaten by shark")
 
 def clear_sea():
     global island_count
@@ -262,7 +262,7 @@ def start_threads():
 
 # Luo pääikkuna
 root = tk.Tk()
-root.title("Apinasaariston matkailu")
+root.title("Monkey island adventure")
 
 point_button=[]
 def i_suppose_i_have_earned_so_much_points(amount_of_points):
